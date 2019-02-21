@@ -36,7 +36,14 @@ run_skip_exit()
       case $cse in
           [Rr]* ) echo ''; break;;
           [Ss]* ) ret=1; break;;
-          [Ee]* ) if [[ ${1:--} != '-' ]]; then eval $( echo "$1" | vipe ); else echo "Nothing to edit!"; fi; break;;
+          [Ee]* ) echo ''; if [[ ${1:--} != '-' ]];
+            then
+              local edited=$( echo "$1" | vipe )
+              eval "$edited"
+            else
+              echo "Nothing to edit!"
+            fi;
+            ret=1; break;;
           [Qq]* ) exit;;
           * ) boldp "Please choose one of: (r)un, (s)kip, (e)dit or (q)uit: ";;
       esac
