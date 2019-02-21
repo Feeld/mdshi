@@ -1,0 +1,73 @@
+#!/usr/bin/env mdshi
+
+
+# Before you start
+
+If './some_dir' exists, would you like to delete it?
+
+```sh
+rm -fr some_dir
+```
+
+Would you like to clear the screen?
+```sh
+clear
+```
+
+# Introduction
+
+Hi, in this tutorial you will learn about the `mkdir` command.
+
+
+# Create a single directory.
+
+You can use `mkdir` to create a directory in the direactory you are crrently
+in:
+
+```sh
+mkdir some_dir
+```
+
+You can see that the directory was created by with the help `ls` command:
+
+```sh
+ls -l
+```
+
+If the directory you are trying to create already exists, `mkdir` will return
+an error:
+
+```sh
+mkdir some_dir
+```
+
+You can also create a directory in some other directory (then your current one),
+by preceding the name of the directory you want to create with a relative path
+(from your current directory) to the directory you want to create it in.
+
+```sh
+mkdir some_dir/a
+
+ls -l some_dir
+```
+
+# Create multiple directories
+
+`mkdir` can create multiple directories at the same time:
+
+```sh
+mkdir some_dir/a some_dir/b some_dir/a/c
+
+find ./some_dir
+```
+
+# Cleanup
+
+Running the following will delete all directories created in this tutorial:
+
+```sh
+rm -fr some_dir
+```
+
+By by :)
+
