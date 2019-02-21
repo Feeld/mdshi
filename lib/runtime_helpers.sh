@@ -24,7 +24,8 @@ prompt_to_continue()
 
 run_skip_exit()
 {
-  if [[ $1 ]]; then echo "$2"; fi
+  # The `${2:--}` variable expansion is used to avoid `$2: unbound variable` error.
+  if [[ ${2:--} != '-' ]]; then echo "$2"; fi
 
   local ret=0
 
@@ -35,7 +36,7 @@ run_skip_exit()
       case $cse in
           [Rr]* ) echo ''; break;;
           [Ss]* ) ret=1; break;;
-          [Ee]* ) eval $( echo "$1" | vipe ); break;;
+          [Ee]* ) if [[ ${1:--} != '-' ]]; then eval $( echo "$1" | vipe ); else echo "Nothing to edit!"; fi; break;;
           [Qq]* ) exit;;
           * ) boldp "Please choose one of: (r)un, (s)kip, (e)dit or (q)uit: ";;
       esac
