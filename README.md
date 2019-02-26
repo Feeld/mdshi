@@ -75,10 +75,10 @@ pause at them).
 
 ## TODOs
 
+- [x] add code block editing before execution using EDITOR/VISUAL
 - [ ] instruct editor about the language used to enable syntax highlighting etc.
 - [ ] add an easy way of requesting the user to manually enter values for
   variables at code block prompt
-- [ ] add code block editing before execution using EDITOR/VISUAL
 - [ ] add a way to start execution from a specific block (could be based on
   label added after language tag)
 - [ ] add a way of listing TOC: listing code blocks (showing first line of block
